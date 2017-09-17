@@ -1,0 +1,31 @@
+body {
+    background-image: url("http://res.cloudinary.com/percowa/image/upload/v1503624841/stationery-584228_1920_ndclfk.jpg");
+    background-color: #cccccc;
+}
+
+#feedback-display{
+text-overflow: clip;
+user-select:none;
+left: 90px;
+top: 35px;
+font-size: 15px;
+font-style: italic;
+font-family: "courier";  
+color: pink;
+position: relative;  
+}
+
+#full-display{
+text-overflow: clip;
+user-select:none;
+left: 35px;
+top: 80px;
+color: #005666;
+font-size: 30px;
+position: relative;
+font-family: "courier";
+}
+.main{
+position: absolute;
+padding: 0px 0px 0px 0px;
+}

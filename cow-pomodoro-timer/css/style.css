@@ -1,0 +1,176 @@
+body {
+background-color: green;
+margin: 0 !important;
+padding: 0 !important;
+outline:0;
+}
+
+button {
+padding:0;
+margin:0;
+background-color:black;
+}
+
+.spot {
+border: 3px solid transparent;
+background-color: black;
+border-radius: 50%;
+width: 50;
+height: 50;
+}
+
+#s1 {
+border: 3px solid transparent;
+background-color: black;
+position:absolute;
+top: 50px;
+left: 2px;
+border-radius: 50% 50% 40% 40%;
+width: 25%;
+height: 50%;
+transform:rotate(15deg);
+}
+
+#cow-eyes {
+position:relative;  
+left: 120px;
+}
+
+#cow-face {
+position:absolute;
+top:50px;
+left:0px;
+}
+#cow-head {
+outline:0;
+padding:0;
+margin:0;
+position:relative;
+border: 3px solid transparent;
+border-radius: 50% 50% 40% 40%;
+width: 360px;
+height: 320px;
+top: 40px;
+left:40%;
+background-color:#F5F5DC;
+  box-shadow: -2px 0px white inset;
+}
+#cow-left-horn {
+position:relative;
+top:-140px;
+left:128px;
+border: 1px solid transparent;
+background-color:	#FFE4C4;
+border-radius:50%;
+width:20px;
+height:60px;
+z-index:-1;
+}
+#cow-right-horn {
+position:relative;
+top:-203px;
+left:203px;
+border: 1px solid transparent;
+background-color:	#FFE4C4;
+border-radius:50%;
+width:20px;
+height:60px;
+z-index:-1;
+}
+#cow-nose {
+position: relative;
+border: 3px solid transparent;
+border-radius:50%;  
+background-color:pink;
+top:0px;
+left:120px;
+width:120px;
+height:120px;
+}
+
+#cow-nose-line {
+position: relative;
+border-left: 3px solid black;
+border-right: 3px solid black;
+top:40px;
+left:30px;
+width:60px;
+height:40px;
+transform:rotate(-6deg);
+}
+
+#cow-left-ear {
+position: relative;
+left:-100px;
+top:60px;
+background-color: #C697AD;
+border: 3px solid black;
+border-radius: 50%;
+width: 150px;
+height: 50px;
+z-index: -1;
+box-shadow: 10px 5px 10px black inset;
+transform: rotate(7deg);
+}
+
+#cow-right-ear {
+position: relative;
+left:300px;
+top:0px;
+background-color: #C697AD;
+border: 3px solid transparent;
+border-radius: 50%;
+width: 150px;
+height: 50px;
+z-index:-1;
+transform: rotate(7deg);
+}
+
+
+#stop-button {
+border-radius:50%;  
+height:50px;
+width:50px;
+font-size:20px;
+color: white;
+}
+#reset-button {
+position: absolute;
+left: 75px;
+height:50px;
+width:50px;  
+border-radius:50%;  
+color: white;
+}
+
+#adjust-button {
+background-color:white;
+}
+
+.page {
+z-index=0; 
+}
+
+#time {
+font-size:50px;
+padding:0;
+opacity:0.5;
+font:"calibri";
+position: absolute;
+left:35%;
+top: 9;
+z-index:1
+}
+
+#sec-select-list {
+position: relative;
+}
+
+#min-select-list {
+position: relative;  
+}
+
+#select-container {
+position: relative;
+left:30%;
+}
