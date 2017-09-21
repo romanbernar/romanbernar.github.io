@@ -1,0 +1,23 @@
+.bio {
+background-color: #0099ff;
+color: lightblue;
+}
+.quote {
+  font-family:"georgia";
+  font-style:"italics";
+}
+
+.creditCaption {
+}
+
+.vincent-img {
+  border-width:10px;
+  border-style:dotted solid;
+  border-color:orange;
+}
+
+.externalLink {
+  border-width:5px;
+  border-style:solid;
+  background-color:#9999ff;
+}
