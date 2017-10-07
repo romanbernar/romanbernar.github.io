@@ -1,4 +1,37 @@
 #loc {
-font-family:Georgia;
-color:#FFB591;
+font-family:"georgia";
+color:green;
+}
+
+.col-md-2 {
+color:green;
+}
+
+.subtitle {
+font-family: "Apple Chancery", cursive;
+color: yellowgreen;
+font-style:
+}
+
+.title {
+font-family: "Apple Chancery", cursive;
+color: yellowgreen;
+}
+
+.title2 {
+color:red;
+font-style: bold;
+
+}
+
+#credits {
+font-style: italic;
+}
+
+#temp {
+color:green;
+}
+
+#weather {
+color:green;
 }

@@ -14,20 +14,25 @@
 </head>
 
 <body>
-  <p> A Weather Machine </p>
-<div id="loc" class="col-xs-6 center">
-</div>
-<button id = "unit" type="button" class="btn btn-primary">Change to Celsius</button>
-<div id="info" class="col-xs-12 well"> 
-Weather info goes here. If you are seeing this message, switch to http in URL.
-</div>
-<div class="row">
-<div class="col-xs-6 well">
-<img id="weatherIcon" src="apple">
-  <p id="weather"> </p>
-  <p id="temp"> </p>
+  <h1 class = "title"> A Weather Machine </h1>
+
+<div class = "row">
+<div class="col-md-3 well">
+
+  <p id = "loc">  
+  </p> 
+     <p id="temp">Loading.. Please allow browser to access your location, in order for the geolocation to work. </p>
+  <p id="weather">
+  <p id="weather-misc"> </p>
+   </p>
   </div>
+<p class = "col-md-2 well" id = "weathercol1"> </p>
+<p class = "col-md-2 well" id = "weathercol2"></p>
+<p class = "col-md-2 well" id = "weathercol3"></p>
+<p class = "col-md-2 well" id = "weathercol4"></p>
 </div>
+<p id = "credits"> Powered by Apixu.  
+</p>
   <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 
     <script  src="js/index.js"></script>
