@@ -1,3 +1,32 @@
-#quick-access{
-padding:15px;
+
+
+.search-button{
+border-color: transparent;
 }
+
+.search-button:hover{
+bqckground-color: #0066ff;
+color:blue;
+}
+
+#search-results{
+display: flex;
+flex-direction: column;
+}
+
+#submit-button {
+background-color: grey;
+
+}
+
+#main-frame {
+display:none;
+height:500px;
+width:100%;
+}
+
+#main-frame-div {
+height:100%;
+width:100%;
+}
+

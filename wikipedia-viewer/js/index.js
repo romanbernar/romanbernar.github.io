@@ -1,9 +1,7 @@
 // url for testing API
 // https://en.wikipedia.org/w/api.php?&generator=search&action=query&prop=info&list=search&srsearch=cow&inprop=url&gsrsearch=cow&callback=%3f
-$(document).ready( function() {
-  
 
-$("#search-button").click(function(json) { 
+$("#submit-button").click(function(json) { 
   event.preventDefault();
   var term = $("#search-term").val();
   $("#search-results").empty();
@@ -12,21 +10,40 @@ $("#search-button").click(function(json) {
   dataType: 'jsonp',
   success: function(data) {
     // generate link+title+snippet  
-   var myData = data.query;
-   addLinks(myData);
-   genResults(myData.search);
+   addLinks(data.query);
+   var buttonClicked;
+   genResults(data.query.search);
+    $(".search-button").click(function(result) {
+ //$(".search-button").css('display', 'block');   
+      $("#search-results").css('display', 'none');
+});
+    $("#random-button").click(function(result) {
+      $("#main-frame").attr('src', 'https://en.wikipedia.org/wiki/Special:Random');
+      $("#main-frame").css('display', 'flex');
+      $("#search-results").css('display', 'none');
+      
+    })
+  goBack();
   }
     });
-    
-function genResults(input) {
-  if(!$.trim( $("#search-results").html() ).length) {
-$(input).each(function(i) {
-    $("#search-results").append("<a href=" + input[i]["fullurl"] + " 'role=button'  class='btn btn-custom'> <h3>" + input[i]["title"] +"</h3>" + input[i]["snippet"] + '...' + '</a> <p> </p>');
-    });  
-} else {
-$("#search-results").append("<a href=" + input[i]["fullurl"] + " 'role=button'  class='btn btn-custom'> <h3>" + input[i]["title"] +"</h3>" + input[i]["snippet"] + '...' + '</a> <p> </p>');
-}
+});
 
+
+
+
+function genResults(input) {
+ // if(!$.trim( $("#search-results").html()).length) {
+    var obj = [];
+$(input).each(function(i) {
+$("#search-results").append("<button class = 'search-button' id = 'search-button" + i.toString() + "'>" + "<h3>" + input[i]["title"] +"</h3>" + input[i]["snippet"] + '...' + "</button>");
+ obj.push(input[i]["fullurl"]);
+// if(i==1) { alert('moo');};
+  $("#search-button" + i.toString()).click(function() {
+     $("#main-frame").css('display', 'flex');
+    $("#main-frame").attr("src", obj[i]);
+    
+  });
+    });  
 }
   
 
@@ -36,8 +53,6 @@ function addLinks(input) {
   var urlList = input.search;
   for (var id in input.pages)
     { $.each(urlList, function(i) {
-      
-        console.log('moo1');
         if (urlList[i]["title"] == input["pages"][id]["title"])
           {
            
@@ -47,6 +62,16 @@ function addLinks(input) {
      }
   input.search = urlList;
   }
-  
+
+function goBack() {
+$("#back-button").click(function(result) {  
+  if ($("#search-results").css('display') == 'flex' && 
+     $("#search-results").css('src').length > 0) {
+      $("#search-results").css('display', 'none');
+  $("#main-frame").css('display', 'flex');
+  } else if ($("#main-frame").css('display') == 'flex') {
+     $("#main-frame").css('display', 'none');
+     $("#search-results").css('display','flex');
+  }
 });
-});
+}
