@@ -16,14 +16,16 @@ float: left;
 margin-top:40px;
 }
 
-.div-background {
- display:table;
-  /*
- background: linear-gradient(lightblue,#6495ED);*/
- background: salmonpink;
+body {
+ display:block;
+background-image: url('http://res.cloudinary.com/percowa/image/upload/v1508643520/forest-2693158_1920_hio82y.jpg');
 }
 
-
+.main-overlay {
+ background: linear-gradient(navajowhite,paleturquoise);
+width:75%;
+height:75%;
+}
 .about-me {
   font-family: "Roboto";
   padding: 50px;
@@ -35,12 +37,11 @@ margin-top:40px;
 
 .btn{
 background-color:lightsalmon;
-border-top: 2px solid white;
-border-left: 2px solid white;
-border-right: 2px solid white;
 box-shadow: 5px 5px 5px pink;
 opacity:0.7;
 }
+
+
 .btn-round:hover {background-color: #3e8e41}
 
 
@@ -55,6 +56,8 @@ top: 30px;
 
 .navbar {
 background:none;
+background-color:navajowhite;
+opacity:0.75;
 }
 
 .thumbnail{
@@ -74,16 +77,15 @@ border-style:dotted;
   border-color:lightsalmon;
 */
 }
-
-.social-padding {
- padding:0;
-}
-
 .social-row {
 margin-left:20px;
 }
 
 #portfolio {
  display:table;
- background: linear-gradient(#6495ED,lightblue);
+/*background: linear-gradient(#6495ED,lightblue);*/
+}
+
+#title-name {
+font-color:white;
 }
