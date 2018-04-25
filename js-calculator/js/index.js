@@ -1,5 +1,8 @@
-var mem,numStr, numStored, opp='', decimalDigit=-1, digit=0, numMem=0, numNew=0, digRatio=0;
-$("#mc").click(function() {
+var mem,numStr, numStored, operation ='', decimalPlace = -1, totalDigits=0, numMem=0, numNew=0;
+addClicks();
+
+function addClicks() {
+$("#mc").click( ()  =>  {
 var out = stopInput();
 if (out == 1) {
  return;
@@ -31,50 +34,28 @@ numMem += numNew;
 $("#full-display").html("m=" + numMem);
 $("#feedback-display").append("M+ ");
 })
-$("#0").click(function() {
-digitAdd(0);
-})
-$("#1").click(function() {
-digitAdd(1);
-})
-$("#2").click(function() {
-digitAdd(2);
-})
-$("#3").click(function() {
-digitAdd(3);
-})
-$("#4").click(function() {
-digitAdd(4);
-})
-$("#5").click(function() {
-digitAdd(5);
-})
-$("#6").click(function() {
-digitAdd(6);
-})
-$("#7").click(function() {
-digitAdd(7);
-})
-$("#8").click(function() {
-digitAdd(8);
-})
-$("#9").click(function() {
-digitAdd(9);
-})
-
+  
+ //number inputs, 1,2,3, etc.
+  
+  for(let i=0;i<10;i++) {
+   $("#" + i).click(function() {
+   digitAdd(i);
+   });
+  }
+  
 $("#dec").click(function() {
 if (numStr.indexOf('.') > -1) {
 return;
-} else if (digit === 0) {
+} else if (totalDigits === 0) {
 numStr = "0";
 }
-decimalDigit = digit;
+decimalPlace = totalDigits;
 $("#full-display").html(numStr + ".");
 $("#feedback-display").append(".");
 })
 
 $("#ce").click(function() {
-decimalDigit=-1, digit=0, numNew=0;
+decimalPlace=-1, totalDigits=0, numNew=0;
 numStr = numNew.toString();
 $("#full-display").html(numStr);
 $("#feedback-display").html('');
@@ -82,8 +63,8 @@ $("#feedback-display").html('');
 
 $("#onClear").click(function() {
 console.log('moo');
-decimalDigit=-1, digit=0, numNew=0, numStored = 0;
-numStr = "CLEAR", opp = "";
+decimalPlace=-1, totalDigits=0, numNew=0, numStored = 0;
+numStr = "CLEAR", operation = "";
 $("#full-display").html(numStr);
 $("#feedback-display").html('');
 });
@@ -93,8 +74,8 @@ if (stopInput() == 1) {
  return;
 }  
 $("#feedback-display").append('+');
-oppExec();
-opp = 'plus';
+operationExec();
+operation = 'plus';
 numNewReset();
 })
 $("#subtract").click(function() {
@@ -102,8 +83,8 @@ if (stopInput() == 1) {
  return;
 }
 $("#feedback-display").append('- ');
-oppExec();
-opp = 'minus';
+operationExec();
+operation = 'minus';
 numNewReset();
 })
 $("#multiply").click(function() {
@@ -111,8 +92,8 @@ if (stopInput() == 1) {
  return;
 }
 $("#feedback-display").append('x ');
-oppExec();
-opp = 'times';
+operationExec();
+operation = 'times';
 numNewReset();
 })
 $("#division").click(function() {
@@ -120,8 +101,8 @@ if (stopInput() == 1) {
  return;
 }
 $("#feedback-display").append('/ ')
-oppExec();
-opp = 'division';
+operationExec();
+operation = 'division';
 numNewReset();
 })
 $("#equals").click(function() {
@@ -129,25 +110,45 @@ if (stopInput() == 1) {
  return;
 }
 $("#feedback-display").append('=');
-oppExec();
+operationExec();
 })
 
 $("#m-").click(function() {
+  if (stopInput() == 1) {
+  return;
+}
 $("#full-display").html(numStr);
 })
+  
 $("#m+").click(function() {
+if (stopInput() == 1) {
+  return;
+}
 $("#full-display").html(numStr);
 })
+  
 $("#percent").click(function() {
-numNew *= 100;
-numStr = numNew.toFixed()
+if (stopInput() == 1) {
+  return;
+}
+  if (totalDigits > 1) {
+numNew = numNew/Math.pow(10,totalDigits-decimalPlace-1);
+numStr = numNew.toFixed(totalDigits - decimalPlace+1).toString();
+} else {
+numNew = numNew/Math.pow(10,totalDigits-decimalPlace);
+numStr = numNew.toFixed(totalDigits - decimalPlace+1).toString();
+}
+$("#feedback-display").append("% ");
 $("#full-display").html(numStr);
 })
 
 $("#sqrt").click(function() { 
-if (opp !== '') {
+  if (stopInput() == 1) {
+  return;
+}
+if (operation !== '') {
 // treat sqrt button as an equals sign + SQRT
-oppExec();
+operationExec();
 }  
 if( numNew < 0) {
 $("#full-display").html("ERROR");
@@ -155,14 +156,15 @@ $("#feedback-display").html("IMAGINARY NUMBER");
 return;  
 } 
 numNew = Math.sqrt(numNew);
-numStr = numNew.toFixed(digit-decimalDigit)
+numStr = numNew.toFixed(totalDigits-decimalPlace)
 $("#full-display").html(numStr);
 $("#feedback-display").append("SQRT");
 });
+}
 
 function stopInput() {
  console.log($("#feedback-display").html().length);
-if (digit>8) {
+if (totalDigits>8) {
 return 1;
 } else if ($("#feedback-display").html().indexOf("ERROR") > -1) {
   return 1;
@@ -172,7 +174,6 @@ $("#feedback-display").html("");
 } else {
 return 0;
 }
-  
 }
 
 function digitAdd(n) {
@@ -180,54 +181,54 @@ function digitAdd(n) {
  return;
 }
 $("#feedback-display").append(n);
-digit++;
-digRatio = digit - decimalDigit;
+totalDigits++;
+var digitRatio = totalDigits - decimalPlace;
 //adds non-zero digit to Display
-if (decimalDigit === -1) {
+if (decimalPlace === -1) {
 numNew = numNew * 10 + n;
 numStr = numNew.toString();    
 } else {
-numNew = numNew + n/Math.pow(10,digit-decimalDigit);
-numStr = numNew.toFixed(digit - decimalDigit).toString();
+numNew = numNew + n/Math.pow(10,totalDigits-decimalPlace);
+numStr = numNew.toFixed(totalDigits - decimalPlace).toString();
 }
 $("#full-display").html(numStr);
 }
 
 function numNewReset(){
-decimalDigit=-1, digit=0, numNew = 0;
+decimalPlace=-1, totalDigits=0, numNew = 0;
 numStr = numNew.toString();
 $("#full-display").html(numStored);
 }
 
-function oppExec(){
-if (opp !== '') {
-switch (opp) {
+function operationExec(){
+if (operation !== '') {
+switch (operation) {
   case 'plus':
     numStored += numNew;
-    opp = '';
+    operation = '';
     break;
   case 'minus':
     numStored -= numNew;
-    opp = '';
+    operation = '';
     break;
   case 'times':
     numStored *= numNew;
-    opp = '';
+    operation = '';
     break;
   case 'division':
      if (numNew === 0) {
     $("#full-display").html("ERROR");  
     $("#feedback-display").html("DIVISION BY ZERO");
-    opp = '';
+    operation = '';
     return;
     }
     numStored /= numNew;
-    opp = '';
+    operation = '';
     break;
   default:
     break;
           }
-numStr = numStored.toFixed(Math.max(digit-decimalDigit,numNew.toString().length -1).toString());
+numStr = numStored.toFixed(Math.max(totalDigits-decimalPlace,numNew.toString().length -1).toString());
 $("#full-display").html(numStr);  
 numNew = numStored;
 } else {
