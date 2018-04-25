@@ -1,0 +1,75 @@
+:root {
+--circle-radius:400px;
+--circle-semi-radius: calc(var(--circle-radius) / 2);
+--circle-quarter-radius: calc(var(--circle-radius) / 4)
+}
+
+body {margin:0;}
+
+.circle {
+  background-color: black; 
+  display: block;
+  padding: 0;
+  width: var(--circle-radius);
+  height: var(--circle-radius);
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px;
+  position: absolute;
+}
+
+#msg {
+position:relative;
+width: 100px;
+left:50px;
+}
+
+#play-info {
+background-color: gray;
+height: 50%;
+font-size: 12px;
+text-align: center;
+}
+
+#logo-circle {
+background-color: white;
+  position: relative;
+  display: block;
+  /*margin: var(--circle-semi-radius);*/
+  width: var(--circle-semi-radius);
+  height: var(--circle-semi-radius);
+  margin:0px;
+  padding:0px;
+  border-radius:50%;
+  overflow: auto;
+  border:1px;
+  left:100px;
+  top:var(--circle-quarter-radius);
+}
+
+.quarter {
+  display: inline-block;
+  float: left;
+  margin: 0;
+  padding: 0;
+  width: var(--circle-semi-radius);
+  height: var(--circle-semi-radius);
+
+}
+
+#q0{
+  background-color:red;   
+}
+
+#q1{
+  background-color: pink;
+}
+
+#q2 {
+  background-color: green;
+}
+
+#q3 {
+  background-color: yellow;
+}
+

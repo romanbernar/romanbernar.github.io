@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+
+body {
+font-family: "Roboto"; 
+color:seagreen;
+
+  
+/*background-image: url("http://res.cloudinary.com/percowa/image/upload/v1505571448/antique_backdrop_background_horhiy.jpg"); */
+}
+
+a {
+float: left;
+}
+
+#about-me {
+margin-top:40px;
+}
+
+body {
+ display:block;
+background-image: url('http://res.cloudinary.com/percowa/image/upload/v1508643520/forest-2693158_1920_hio82y.jpg');
+}
+
+.main-overlay {
+ background: linear-gradient(navajowhite,paleturquoise);
+width:75%;
+height:75%;
+}
+.about-me {
+  font-family: "Roboto";
+  padding: 50px;
+  border-style: solid;
+  border-top:1px;
+  border-color: lightsalmon;
+  background: linear-gradient(lightblue,#6495ED);
+}
+
+.btn{
+background-color:lightsalmon;
+box-shadow: 5px 5px 5px pink;
+opacity:0.7;
+}
+
+
+.btn-round:hover {background-color: #3e8e41}
+
+
+.fa {
+color:seagreen;
+background-color:lightblue;
+}
+
+.img-circle {
+top: 30px;
+}
+
+.social-row {
+margin-left:20px;
+}
+
+#portfolio {
+ display:table;
+/*background: linear-gradient(#6495ED,lightblue);*/
+}
+
+
+.thumbnail{
+background:none;
+}
+
+
+#title-name {
+font-color:white;
+}

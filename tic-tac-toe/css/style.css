@@ -1,0 +1,75 @@
+
+h1 {
+color: black;
+}
+/*  #571A1A Hidden until pieces/turn are decided*/
+
+#game-grid-container {
+border-color: pink;
+border: 10px ridge;
+display: none; 
+grid-template-columns: repeat(3, 150px);
+  grid-gap: 0px;
+    grid-template-rows: repeat(3, 175px);
+}
+
+.grid-button {
+background-color: turquoise;
+}
+/* #FE0101*/
+.grid-button:hover {
+background-color: #CD7979;
+border: 10px #CD7979 solid;
+}
+
+#console {
+position: relative;
+left: 125px;
+background-color: gray;
+}
+
+
+#end-screen {
+display: none;
+font-family: "Serif";
+font-size:20px;
+background-color: aquamarine;
+color: green;
+}
+
+
+#options-grid-container {
+display: grid;
+grid-template-rows:repeat(3,100px);
+columns:repeat(3,100px);
+}
+
+#turn-button-row {
+position:relative;
+top:130px;
+}
+
+/*
+
+#sq1 {
+  grid-column-start: 1;
+  grid-column-end: 1;
+  grid-row-start: 1;
+  grid-row-end: 1;
+  background-color:yellow
+} */
+
+#play-button {
+type: button;
+border-radius: 50%;
+background-color: pink;
+color: deepPink;
+position: relative;
+top:50px;
+}
+
+#reset-button {
+border-radius: 50%;
+background-color: pink;
+}
+

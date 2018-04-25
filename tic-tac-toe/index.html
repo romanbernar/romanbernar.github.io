@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Tic-Tac-Toe</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <p> 
+  <h1>Tic-Tac-Toe!</h1> 
+</p>
+<p id="console-info">Press Play to start! You can click on the game pieces to select your own! Have fun!</p>
+
+<div id = "options-grid-container">
+  <span> <img id= 'x-img' src = "http://res.cloudinary.com/percowa/image/upload/v1504918756/tttx_uzbklr.png" onclick = "var userPiece = 'x'"></img> or <img id = "o-img"  onclick = "var userPiece = 'o'" src= "http://res.cloudinary.com/percowa/image/upload/v1504918757/ttto_ufaaml.png"</img></span>
+<span id="turn-button-row"> 
+  <button id="first-button">Go First</button> 
+  <button id="second-button">Go Second</button> 
+  <button id= "randomize-button">Randomize </button>
+  </span>
+<span><button id = "play-button"> Play </button> </span>
+
+</div>
+
+<div id= "end-screen">  <button type='button' id= "reset-button"> Restart </button> </div>
+
+<div id = "game-grid-container">
+   <button class = 'grid-button' id = "sq1"> </button>
+  <button class = 'grid-button' id = "sq2"> </button>
+    <button class = 'grid-button' id = "sq3"> </button>
+    <button class = 'grid-button' id = "sq4"> </button>
+    <button class = 'grid-button' id = "sq5"> </button>
+    <button class = 'grid-button' id = "sq6"></button>
+    <button class = 'grid-button' id = "sq7"> </button>
+    <button class = 'grid-button' id = "sq8"> </button>
+  <button class = 'grid-button' id = "sq9"> </button>
+</div>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
