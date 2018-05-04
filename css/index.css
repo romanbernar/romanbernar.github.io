@@ -8,8 +8,7 @@ body {
  display: block;
  font-family: "Roboto"; 
 color:seagreen;
-/*background-image: url('http://res.cloudinary.com/percowa/image/upload/v1508643520/forest-2693158_1920_hio82y.jpg');
-*/}
+}
 
 .main-overlay {
  background: linear-gradient(navajowhite,paleturquoise);
@@ -75,7 +74,7 @@ top: 30px;
 }
 
 #name {
-left: 400px;
+left: 50%;
 position: relative;
 }
 
